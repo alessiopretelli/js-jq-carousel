@@ -1,4 +1,6 @@
-$(document).ready( function() {
+$(document).ready(function() {
+
+    $('.nav i').css('cursor', 'pointer');
 
     $('.prev').click(
 
@@ -15,6 +17,14 @@ $(document).ready( function() {
         }
 
     );
+
+    $('.nav i').click(
+
+        function() {
+            changeI($(this).index());
+        }
+
+    )
 
 });
 
@@ -62,4 +72,17 @@ function nextImg() {
         i.next('i').addClass('active');
     }
 
+}
+
+function changeI(ind) {
+    var img = $('img.active');
+    var i = $('i.active');
+    var img_ind = $('.images img').eq(ind);
+    var i_ind = $('.nav i').eq(ind);
+
+    img.removeClass('active');
+    i.removeClass('active');
+
+    img_ind.addClass('active');
+    i_ind.addClass('active');    
 }
